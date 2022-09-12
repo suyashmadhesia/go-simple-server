@@ -10,4 +10,6 @@ migrateup:
 	migrate -path db/migration -database "postgresql://root:password@localhost:5432/simple_bank?sslmode=disable" --verbose up
 sqlc:
 	sqlc generate
-.PHONY: createdb dropdb migratedown migrateup postgres sqlc
+test:
+	go test -v ./db/sqlc
+.PHONY: createdb dropdb migratedown migrateup postgres sqlc test
